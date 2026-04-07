@@ -130,6 +130,12 @@
   .price-card.urgent .amount { color: var(--urgent); }
   .price-card .desc { font-size: 0.78rem; color: var(--text-mid); margin-top: 4px; }
 
+  .btn-primary.btn-multiline {
+    flex-direction: column; gap: 2px; text-align: center;
+    line-height: 1.4; padding: 16px 44px;
+  }
+  .btn-primary.btn-multiline::after { display: none; }
+
   .btn-primary {
     display: inline-flex; align-items: center; gap: 10px;
     background: var(--teal); color: #fff;
@@ -151,18 +157,6 @@
   .hero-photo {
     width: 100%; height: 100%;
     object-fit: cover; object-position: center top;
-  }
-  .hero-right .deco-circle {
-    position: absolute; top: -80px; right: -80px;
-    width: 340px; height: 340px;
-    border: 2px solid rgba(78,143,130,0.15);
-    border-radius: 50%; pointer-events: none;
-  }
-  .hero-right .deco-circle-2 {
-    position: absolute; bottom: -60px; left: -60px;
-    width: 220px; height: 220px;
-    border: 2px solid rgba(78,143,130,0.1);
-    border-radius: 50%; pointer-events: none;
   }
   .hero-name-tag {
     position: absolute; bottom: 32px; left: 32px;
@@ -289,9 +283,13 @@
     display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;
   }
   .included-illustration {
-    position: sticky; top: 120px; text-align: center;
+    text-align: center;
+    align-self: start;
   }
-  .included-illustration img { width: 85%; max-width: 420px; }
+  .included-illustration img {
+    width: 85%; max-width: 420px;
+    display: block; margin: 0 auto;
+  }
   .included-list { display: flex; flex-direction: column; gap: 0; }
   .included-item {
     display: flex; align-items: flex-start; gap: 18px;
@@ -532,8 +530,6 @@
     <a href="#form" class="btn-primary">Заказать расчет отчета</a>
   </div>
   <div class="hero-right">
-    <div class="deco-circle"></div>
-    <div class="deco-circle-2"></div>
     <img src="natalia.jpg" alt="Наталья Воинова — бухгалтер" class="hero-photo">
     <div class="hero-name-tag">
       <strong>Наталья Воинова</strong>
@@ -655,7 +651,7 @@
 
   <div class="included-layout">
     <div class="included-illustration">
-      <img src="illus2.PNG" alt="Бухгалтерские услуги">
+      <img src="illus2_nobg.png" alt="Бухгалтерские услуги">
     </div>
     <div>
       <div class="included-list">
@@ -727,7 +723,9 @@
         <div class="reason-item"><div class="reason-dot"></div><span>Это стимул не откладывать на последний момент</span></div>
       </div>
       <br>
-      <a href="#form" class="btn-primary" style="margin-top:8px;">Заказать с экономией 1 500 Kč</a>
+      <a href="#form" class="btn-primary btn-multiline" style="margin-top:8px;">
+        <span>Заказать<br>с экономией<br>1&nbsp;500&nbsp;Kč</span>
+      </a>
     </div>
   </div>
 </section>
@@ -742,18 +740,22 @@
         Заполните форму, мы свяжемся с вами в течение 24 часов и пришлём инструкции по документам.
       </p>
 
-      <form id="orderForm">
+      <form id="orderForm" action="https://formspree.io/f/REPLACE_WITH_YOUR_ID" method="POST">
+        <!-- Formspree: после регистрации на formspree.io замените REPLACE_WITH_YOUR_ID на ваш ID формы -->
+        <input type="hidden" name="_subject" value="Новая заявка на расчет годового отчета">
+        <input type="hidden" name="_cc" value="fbl@voinova.tax">
+        <input type="hidden" name="_next" value="">
         <div class="field-group">
           <label>Имя и фамилия *</label>
-          <input type="text" placeholder="Иван Иванов" required>
+          <input type="text" name="name" placeholder="Иван Иванов" required>
         </div>
         <div class="field-group">
           <label>Номер телефона *</label>
-          <input type="tel" placeholder="+420 000 000 000" required>
+          <input type="tel" name="phone" placeholder="+420 000 000 000" required>
         </div>
         <div class="field-group">
           <label>Email *</label>
-          <input type="email" placeholder="vash@email.cz" required>
+          <input type="email" name="email" placeholder="vash@email.cz" required>
         </div>
         <div class="field-group">
           <label>Тип отчета *</label>
@@ -784,7 +786,7 @@
         <a href="https://wa.me/420000000000" class="contact-btn">
           <span style="font-size:1.3rem;">💬</span> Написать в WhatsApp
         </a>
-        <a href="mailto:info@voinovabuchalterie.cz" class="contact-btn">
+        <a href="/cdn-cgi/l/email-protection#4920272f26093f262027263f282b3c2a2128253d2c3b202c672a33" class="contact-btn">
           <span style="font-size:1.3rem;">✉️</span> Написать на email
         </a>
       </div>
@@ -813,7 +815,7 @@
 
   <div class="final-contact-links">
     <a href="https://wa.me/420000000000">💬 WhatsApp: +420 000 000 000</a>
-    <a href="mailto:info@voinovabuchalterie.cz">✉️ info@voinovabuchalterie.cz</a>
+    <a href="/cdn-cgi/l/email-protection#96fff8f0f9d6e0f9fff8f9e0f7f4e3f5fef7fae2f3e4fff3b8f5ec">✉️ <span class="__cf_email__" data-cfemail="127b7c747d52647d7b7c7d64737067717a737e6677607b773c7168">[email&#160;protected]</span></a>
   </div>
 </section>
 
@@ -822,7 +824,7 @@
   <p>© 2025 Наталья Воинова · Бухгалтерские услуги в Чехии · OSVČ &amp; S.R.O.</p>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(el => {
       if (el.isIntersecting) {
@@ -838,23 +840,6 @@
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
   document.querySelector('.stats-bar').classList.add('visible');
 
-  document.getElementById('orderForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const btn = this.querySelector('.submit-btn');
-    btn.textContent = '✓ Заявка отправлена!';
-    btn.style.background = 'var(--teal-dark)';
-    btn.disabled = true;
-  });
-
   document.querySelectorAll('.radio-label input').forEach(r => {
     r.addEventListener('change', () => {
-      document.querySelectorAll('.radio-label').forEach(l => { l.style.borderColor = ''; l.style.background = ''; });
-      if (r.checked) {
-        r.closest('.radio-label').style.borderColor = 'var(--teal)';
-        r.closest('.radio-label').style.background = 'var(--teal-pale)';
-      }
-    });
-  });
-</script>
-</body>
-</html>
+      document.querySelec
