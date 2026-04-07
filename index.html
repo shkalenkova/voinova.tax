@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Годовой отчет 2025 — Наталья Воинова</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
 <style>
 :root {
   --teal: #4e8f82;
@@ -50,9 +53,9 @@ body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--t
 .urgency-banner strong { color: #a8ddd4; }
 
 /* HERO */
-.hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 88vh; align-items: stretch; }
+.hero { display: grid; grid-template-columns: 1fr 1fr; min-height: auto; align-items: stretch; }
 .hero-left {
-  padding: 80px 60px 80px 80px;
+  padding: 48px 60px 48px 80px;
   display: flex; flex-direction: column; justify-content: center; position: relative;
 }
 .hero-left::before {
@@ -64,18 +67,18 @@ body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--t
   display: inline-flex; align-items: center; gap: 8px;
   background: var(--teal-pale); color: var(--teal); border-radius: 50px; padding: 6px 16px;
   font-size: 0.8rem; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase;
-  margin-bottom: 28px; width: fit-content;
+  margin-bottom: 16px; width: fit-content;
 }
 .hero h1 {
   font-family: 'Playfair Display', serif; font-size: clamp(1.7rem, 2.8vw, 2.7rem);
-  font-weight: 900; line-height: 1.2; color: var(--text-dark); margin-bottom: 16px;
+  font-weight: 900; line-height: 1.2; color: var(--text-dark); margin-bottom: 12px;
 }
 .hero h1 em { color: var(--teal); font-style: normal; }
 .hero-deadline {
   font-size: 1rem; font-weight: 600; color: var(--urgent);
-  margin-bottom: 36px; display: flex; align-items: center; gap: 8px;
+  margin-bottom: 24px; display: flex; align-items: center; gap: 8px;
 }
-.price-cards { display: flex; gap: 16px; margin-bottom: 40px; flex-wrap: wrap; }
+.price-cards { display: flex; gap: 16px; margin-bottom: 28px; flex-wrap: wrap; }
 .price-card {
   background: #fff; border: 2px solid var(--border); border-radius: 16px;
   padding: 18px 22px; flex: 1; min-width: 160px; position: relative;
@@ -236,8 +239,8 @@ footer { background: var(--text-dark); color: rgba(255,255,255,0.5); text-align:
 @media (max-width: 900px) {
   section { padding: 60px 24px; }
   .hero { grid-template-columns: 1fr; min-height: auto; }
-  .hero-left { padding: 60px 24px; }
-  .hero-right { min-height: 360px; }
+  .hero-left { padding: 40px 24px; }
+  .hero-right { min-height: 320px; }
   .stats-bar { padding: 28px 24px; flex-wrap: wrap; }
   .stat-item { border-right: none; border-bottom: 1px solid var(--border); padding: 20px 0; width: 50%; flex: none; }
   .stat-item:nth-child(odd) { border-right: 1px solid var(--border); }
@@ -497,7 +500,7 @@ footer { background: var(--text-dark); color: rgba(255,255,255,0.5); text-align:
       <div class="form-contact-box">
         <p>Есть вопросы?</p>
         <a href="https://wa.me/420000000000" class="contact-btn"><span style="font-size:1.3rem">💬</span> Написать в WhatsApp</a>
-        <a href="mailto:fbl@voinova.tax" class="contact-btn"><span style="font-size:1.3rem">✉️</span> Написать на email</a>
+        <a href="/cdn-cgi/l/email-protection#9ef8fcf2dee8f1f7f0f1e8ffb0eaffe6" class="contact-btn"><span style="font-size:1.3rem">✉️</span> Написать на email</a>
       </div>
     </div>
   </div>
@@ -521,7 +524,7 @@ footer { background: var(--text-dark); color: rgba(255,255,255,0.5); text-align:
   <a href="#form" class="btn-cta-large">Заказать расчет отчета →</a>
   <div class="final-contacts">
     <a href="https://wa.me/420000000000">💬 WhatsApp: +420 000 000 000</a>
-    <a href="mailto:fbl@voinova.tax">✉️ fbl@voinova.tax</a>
+    <a href="/cdn-cgi/l/email-protection#1f797d735f6970767170697e316b7e67">✉️ <span class="__cf_email__" data-cfemail="6204000e22140d0b0c0d14034c16031a">[email&#160;protected]</span></a>
   </div>
 </section>
 
@@ -530,7 +533,7 @@ footer { background: var(--text-dark); color: rgba(255,255,255,0.5); text-align:
   <p>© 2025 Наталья Воинова · Бухгалтерские услуги в Чехии · OSVČ &amp; S.R.O.</p>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 (function() {
   // Animate elements on scroll
   var items = document.querySelectorAll('.anim');
@@ -558,16 +561,4 @@ footer { background: var(--text-dark); color: rgba(255,255,255,0.5); text-align:
   document.querySelectorAll('.radio-label input').forEach(function(r) {
     r.addEventListener('change', function() {
       document.querySelectorAll('.radio-label').forEach(function(l) {
-        l.style.borderColor = '';
-        l.style.background = '';
-      });
-      if (r.checked) {
-        r.closest('.radio-label').style.borderColor = 'var(--teal)';
-        r.closest('.radio-label').style.background = 'var(--teal-pale)';
-      }
-    });
-  });
-})();
-</script>
-</body>
-</html>
+        l.style.borderC
