@@ -6,491 +6,253 @@
 <title>Годовой отчет 2025 — Наталья Воинова</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --teal: #4e8f82;
-    --teal-dark: #3a6e63;
-    --teal-light: #7ab5a8;
-    --teal-pale: #eaf4f2;
-    --cream: #faf9f6;
-    --warm-white: #f5f3ef;
-    --text-dark: #1a2e28;
-    --text-mid: #4a6b62;
-    --text-light: #8aada5;
-    --urgent: #c0392b;
-    --urgent-light: #fdf0ef;
-    --border: #d8ebe6;
-    --shadow: 0 4px 32px rgba(78,143,130,0.10);
-  }
+:root {
+  --teal: #4e8f82;
+  --teal-dark: #3a6e63;
+  --teal-light: #7ab5a8;
+  --teal-pale: #eaf4f2;
+  --cream: #faf9f6;
+  --warm-white: #f5f3ef;
+  --text-dark: #1a2e28;
+  --text-mid: #4a6b62;
+  --text-light: #8aada5;
+  --urgent: #c0392b;
+  --urgent-light: #fdf0ef;
+  --border: #d8ebe6;
+  --shadow: 0 4px 32px rgba(78,143,130,0.10);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--text-dark); line-height: 1.65; overflow-x: hidden; }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+/* HEADER */
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(250,249,246,0.96); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 40px; display: flex; align-items: center; justify-content: space-between;
+}
+.logo img { height: 44px; width: auto; display: block; }
+.header-cta {
+  background: var(--teal); color: #fff; border: none; border-radius: 50px;
+  padding: 10px 28px; font-family: 'Jost', sans-serif; font-size: 0.85rem;
+  font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+  cursor: pointer; transition: background 0.25s, transform 0.2s;
+  text-decoration: none; display: inline-block;
+}
+.header-cta:hover { background: var(--teal-dark); transform: translateY(-1px); }
 
-  body {
-    font-family: 'Jost', sans-serif;
-    background: var(--cream);
-    color: var(--text-dark);
-    line-height: 1.65;
-    overflow-x: hidden;
-  }
+/* URGENCY BANNER */
+.urgency-banner {
+  background: linear-gradient(90deg, var(--teal-dark), var(--teal));
+  color: #fff; text-align: center; padding: 10px 20px; font-size: 0.9rem; font-weight: 500;
+}
+.urgency-banner strong { color: #a8ddd4; }
 
-  /* ─── HEADER ─── */
-  .site-header {
-    position: sticky; top: 0; z-index: 100;
-    background: rgba(250,249,246,0.96);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-    padding: 14px 40px;
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .logo img { height: 44px; width: auto; display: block; }
-  .header-cta {
-    background: var(--teal); color: #fff; border: none; border-radius: 50px;
-    padding: 10px 28px; font-family: 'Jost', sans-serif;
-    font-size: 0.85rem; font-weight: 600; letter-spacing: 1px;
-    text-transform: uppercase; cursor: pointer;
-    transition: background 0.25s, transform 0.2s;
-    text-decoration: none; display: inline-block;
-  }
-  .header-cta:hover { background: var(--teal-dark); transform: translateY(-1px); }
+/* HERO */
+.hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 88vh; align-items: stretch; }
+.hero-left {
+  padding: 80px 60px 80px 80px;
+  display: flex; flex-direction: column; justify-content: center; position: relative;
+}
+.hero-left::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 20% 50%, rgba(78,143,130,0.06), transparent 70%);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--teal-pale); color: var(--teal); border-radius: 50px; padding: 6px 16px;
+  font-size: 0.8rem; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase;
+  margin-bottom: 28px; width: fit-content;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif; font-size: clamp(1.7rem, 2.8vw, 2.7rem);
+  font-weight: 900; line-height: 1.2; color: var(--text-dark); margin-bottom: 16px;
+}
+.hero h1 em { color: var(--teal); font-style: normal; }
+.hero-deadline {
+  font-size: 1rem; font-weight: 600; color: var(--urgent);
+  margin-bottom: 36px; display: flex; align-items: center; gap: 8px;
+}
+.price-cards { display: flex; gap: 16px; margin-bottom: 40px; flex-wrap: wrap; }
+.price-card {
+  background: #fff; border: 2px solid var(--border); border-radius: 16px;
+  padding: 18px 22px; flex: 1; min-width: 160px; position: relative;
+}
+.price-card.featured { border-color: var(--teal); background: var(--teal-pale); }
+.price-card .badge {
+  position: absolute; top: -10px; left: 16px; background: var(--teal); color: #fff;
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; padding: 3px 10px; border-radius: 50px; text-transform: uppercase;
+}
+.price-card .label { font-size: 0.78rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 6px; font-weight: 500; }
+.price-card .amount { font-family: 'Playfair Display', serif; font-size: 1.9rem; font-weight: 700; color: var(--teal-dark); line-height: 1; }
+.price-card.urgent-card .amount { color: var(--urgent); }
+.price-card .desc { font-size: 0.78rem; color: var(--text-mid); margin-top: 4px; }
 
-  /* ─── URGENCY BANNER ─── */
-  .urgency-banner {
-    background: linear-gradient(90deg, var(--teal-dark) 0%, var(--teal) 100%);
-    color: #fff; text-align: center;
-    padding: 10px 20px; font-size: 0.9rem; font-weight: 500; letter-spacing: 0.3px;
-  }
-  .urgency-banner strong { color: #a8ddd4; }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--teal); color: #fff; border: none; border-radius: 50px;
+  padding: 18px 44px; font-family: 'Jost', sans-serif; font-size: 0.9rem;
+  font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+  cursor: pointer; transition: all 0.3s; text-decoration: none;
+  box-shadow: 0 8px 30px rgba(78,143,130,0.35);
+}
+.btn-primary:hover { background: var(--teal-dark); transform: translateY(-3px); }
+.btn-primary::after { content: '→'; font-size: 1.1rem; }
+.btn-primary.multiline { flex-direction: column; gap: 2px; text-align: center; line-height: 1.4; padding: 16px 44px; }
+.btn-primary.multiline::after { display: none; }
 
-  /* ─── HERO ─── */
-  .hero {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 0; min-height: 88vh; align-items: stretch;
-    background: var(--cream);
-  }
-  .hero-left {
-    padding: 80px 60px 80px 80px;
-    display: flex; flex-direction: column; justify-content: center;
-    position: relative;
-  }
-  .hero-left::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-    background: radial-gradient(ellipse at 20% 50%, rgba(78,143,130,0.06) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .hero-eyebrow {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: var(--teal-pale); color: var(--teal);
-    border-radius: 50px; padding: 6px 16px;
-    font-size: 0.8rem; font-weight: 600; letter-spacing: 1.2px;
-    text-transform: uppercase; margin-bottom: 28px; width: fit-content;
-  }
-  .hero-eyebrow::before { content: '⏰'; font-size: 0.9rem; }
+.hero-right { position: relative; overflow: hidden; background: linear-gradient(145deg, var(--teal-pale), #cde8e3); }
+.hero-photo { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+.hero-name-tag {
+  position: absolute; bottom: 32px; left: 32px;
+  background: rgba(250,249,246,0.95); backdrop-filter: blur(8px);
+  border-radius: 14px; padding: 14px 20px; border-left: 4px solid var(--teal);
+}
+.hero-name-tag strong { display: block; font-size: 1rem; font-weight: 700; color: var(--text-dark); }
+.hero-name-tag span { font-size: 0.8rem; color: var(--text-mid); }
 
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.7rem, 2.8vw, 2.7rem);
-    font-weight: 900; line-height: 1.2;
-    color: var(--text-dark); margin-bottom: 16px;
-  }
-  .hero h1 em { color: var(--teal); font-style: normal; }
+/* STATS BAR */
+.stats-bar {
+  background: #fff; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  padding: 36px 80px; display: flex;
+}
+.stat-item { flex: 1; text-align: center; padding: 0 40px; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-num { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 900; color: var(--teal); line-height: 1; }
+.stat-unit { font-size: 1.1rem; color: var(--text-mid); font-weight: 400; }
+.stat-label { font-size: 0.85rem; color: var(--text-mid); margin-top: 4px; }
 
-  .hero-deadline {
-    font-size: 1rem; font-weight: 600; color: var(--urgent);
-    margin-bottom: 36px; display: flex; align-items: center; gap: 8px;
-  }
-  .hero-deadline::before { content: '🔴'; font-size: 0.8rem; }
+/* SECTIONS */
+section { padding: 90px 80px; }
+.section-eyebrow { font-size: 0.78rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--teal); margin-bottom: 12px; display: block; }
+.section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 900; line-height: 1.2; margin-bottom: 48px; color: var(--text-dark); }
 
-  .price-cards {
-    display: flex; gap: 16px; margin-bottom: 40px; flex-wrap: wrap;
-  }
-  .price-card {
-    background: #fff; border: 2px solid var(--border);
-    border-radius: 16px; padding: 18px 22px;
-    flex: 1; min-width: 160px; position: relative;
-    transition: box-shadow 0.25s;
-  }
-  .price-card:hover { box-shadow: var(--shadow); }
-  .price-card.featured { border-color: var(--teal); background: var(--teal-pale); }
-  .price-card .badge {
-    position: absolute; top: -10px; left: 16px;
-    background: var(--teal); color: #fff;
-    font-size: 0.7rem; font-weight: 700; letter-spacing: 1px;
-    padding: 3px 10px; border-radius: 50px; text-transform: uppercase;
-  }
-  .price-card .label {
-    font-size: 0.78rem; color: var(--text-light);
-    text-transform: uppercase; letter-spacing: 0.8px;
-    margin-bottom: 6px; font-weight: 500;
-  }
-  .price-card .amount {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.9rem; font-weight: 700; color: var(--teal-dark); line-height: 1;
-  }
-  .price-card .currency { font-size: 1rem; font-weight: 400; }
-  .price-card.urgent .amount { color: var(--urgent); }
-  .price-card .desc { font-size: 0.78rem; color: var(--text-mid); margin-top: 4px; }
+/* DATES */
+.dates-section { background: var(--warm-white); }
+.dates-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; border: 1px solid var(--border); border-radius: 20px; overflow: hidden; background: #fff; box-shadow: var(--shadow); }
+.date-row { padding: 32px 36px; border-right: 1px solid var(--border); }
+.date-row:last-child { border-right: none; }
+.date-row.highlighted { background: var(--teal-pale); }
+.date-row.deadline { background: var(--urgent-light); }
+.date-tag { font-size: 0.72rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-light); margin-bottom: 10px; display: block; }
+.date-row.highlighted .date-tag { color: var(--teal); }
+.date-row.deadline .date-tag { color: var(--urgent); }
+.date-headline { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--text-dark); margin-bottom: 8px; }
+.date-row.deadline .date-headline { color: var(--urgent); }
+.date-desc { font-size: 0.9rem; color: var(--text-mid); line-height: 1.5; }
+.progress-row { margin-top: 12px; }
+.progress-track { height: 5px; background: var(--border); border-radius: 50px; overflow: hidden; }
+.progress-fill { height: 100%; border-radius: 50px; background: var(--teal); width: 0; transition: width 1.5s cubic-bezier(0.4,0,0.2,1); }
+.progress-fill.red { background: var(--urgent); }
 
-  .btn-primary.btn-multiline {
-    flex-direction: column; gap: 2px; text-align: center;
-    line-height: 1.4; padding: 16px 44px;
-  }
-  .btn-primary.btn-multiline::after { display: none; }
+/* MILESTONES */
+.milestone-section { background: var(--cream); }
+.milestone-row { display: grid; grid-template-columns: 130px 1fr 200px 60px; gap: 32px; align-items: center; padding: 32px 0; border-bottom: 1px solid var(--border); }
+.milestone-row:last-child { border-bottom: none; }
+.milestone-time { font-size: 0.72rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-light); }
+.milestone-content strong { display: block; font-size: 1.05rem; font-weight: 700; color: var(--text-dark); margin-bottom: 4px; }
+.milestone-content span { font-size: 0.88rem; color: var(--text-mid); }
+.m-bar-track { height: 8px; background: var(--border); border-radius: 50px; overflow: hidden; }
+.m-bar-fill { height: 100%; border-radius: 50px; width: 0; transition: width 1.8s cubic-bezier(0.4,0,0.2,1); }
+.m-bar-fill.c1 { background: var(--teal-light); }
+.m-bar-fill.c2 { background: var(--teal); }
+.m-bar-fill.c3 { background: var(--urgent); }
+.milestone-num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; color: var(--border); text-align: right; }
+.milestone-row:nth-child(2) .milestone-num { color: var(--teal-light); }
+.milestone-row:nth-child(3) .milestone-num { color: var(--teal); }
+.milestone-row:last-child .milestone-num { color: var(--urgent); }
 
-  .btn-primary {
-    display: inline-flex; align-items: center; gap: 10px;
-    background: var(--teal); color: #fff;
-    border: none; border-radius: 50px;
-    padding: 18px 44px; font-family: 'Jost', sans-serif;
-    font-size: 0.9rem; font-weight: 700; letter-spacing: 1.5px;
-    text-transform: uppercase; cursor: pointer;
-    transition: all 0.3s; text-decoration: none;
-    box-shadow: 0 8px 30px rgba(78,143,130,0.35);
-  }
-  .btn-primary:hover { background: var(--teal-dark); transform: translateY(-3px); box-shadow: 0 14px 40px rgba(78,143,130,0.4); }
-  .btn-primary::after { content: '→'; font-size: 1.1rem; }
+/* INCLUDED */
+.included-section { background: var(--warm-white); }
+.included-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+.included-illustration { text-align: center; }
+.included-illustration img { width: 85%; max-width: 420px; display: block; margin: 0 auto; }
+.included-item { display: flex; align-items: flex-start; gap: 18px; padding: 22px 0; border-bottom: 1px solid var(--border); }
+.included-item:last-child { border-bottom: none; }
+.included-check { flex-shrink: 0; width: 32px; height: 32px; background: var(--teal-pale); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--teal); font-size: 0.9rem; font-weight: 700; margin-top: 2px; }
+.included-text strong { display: block; font-size: 1rem; font-weight: 600; color: var(--text-dark); margin-bottom: 3px; }
+.included-text span { font-size: 0.88rem; color: var(--text-mid); }
+.bonus-box { margin-top: 32px; padding: 28px 32px; background: linear-gradient(135deg, var(--teal-dark), var(--teal)); border-radius: 20px; color: #fff; display: flex; gap: 18px; align-items: flex-start; }
+.bonus-icon { font-size: 2rem; flex-shrink: 0; }
+.bonus-box strong { display: block; font-size: 1rem; margin-bottom: 4px; }
+.bonus-box span { font-size: 0.88rem; opacity: 0.85; line-height: 1.5; }
 
-  .hero-right {
-    position: relative; overflow: hidden;
-    background: linear-gradient(145deg, var(--teal-pale) 0%, #cde8e3 100%);
-    display: flex; align-items: center; justify-content: center;
-  }
-  .hero-photo {
-    width: 100%; height: 100%;
-    object-fit: cover; object-position: center top;
-  }
-  .hero-name-tag {
-    position: absolute; bottom: 32px; left: 32px;
-    background: rgba(250,249,246,0.95); backdrop-filter: blur(8px);
-    border-radius: 14px; padding: 14px 20px;
-    border-left: 4px solid var(--teal);
-  }
-  .hero-name-tag strong { display: block; font-size: 1rem; font-weight: 700; color: var(--text-dark); }
-  .hero-name-tag span { font-size: 0.8rem; color: var(--text-mid); }
+/* URGENT */
+.urgent-section { background: var(--urgent-light); padding: 70px 80px; border-top: 1px solid #f5c6c5; border-bottom: 1px solid #f5c6c5; }
+.urgent-layout { display: grid; grid-template-columns: auto 1fr; gap: 60px; align-items: center; max-width: 900px; margin: 0 auto; }
+.urgent-icon-wrap { width: 100px; height: 100px; background: var(--urgent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.4rem; box-shadow: 0 8px 30px rgba(192,57,43,0.35); }
+.urgent-title { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; color: var(--urgent); margin-bottom: 12px; }
+.urgent-text { font-size: 0.95rem; color: var(--text-mid); margin-bottom: 20px; }
+.reason-item { display: flex; align-items: flex-start; gap: 12px; font-size: 0.9rem; color: var(--text-mid); margin-bottom: 10px; }
+.reason-dot { width: 6px; height: 6px; background: var(--urgent); border-radius: 50%; margin-top: 8px; flex-shrink: 0; }
 
-  /* ─── STATS BAR ─── */
-  .stats-bar {
-    background: #fff; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-    padding: 36px 80px; display: flex; gap: 0; justify-content: center;
-  }
-  .stat-item {
-    flex: 1; text-align: center; padding: 0 40px;
-    border-right: 1px solid var(--border);
-  }
-  .stat-item:last-child { border-right: none; }
-  .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem; font-weight: 900; color: var(--teal); line-height: 1;
-  }
-  .stat-unit { font-size: 1.1rem; color: var(--text-mid); font-weight: 400; }
-  .stat-label { font-size: 0.85rem; color: var(--text-mid); margin-top: 4px; }
+/* FORM */
+.form-section { background: #fff; border-top: 1px solid var(--border); }
+.form-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.form-illustration img { width: 80%; max-width: 400px; border-radius: 20px; object-fit: cover; box-shadow: 0 12px 50px rgba(78,143,130,0.18); display: block; margin: 0 auto; }
+.form-contact-box { margin-top: 32px; padding: 28px; background: var(--teal-pale); border-radius: 20px; }
+.form-contact-box p { font-size: 0.78rem; font-weight: 600; letter-spacing: 1px; text-align: center; color: var(--text-mid); text-transform: uppercase; margin-bottom: 16px; }
+.contact-btn { display: flex; align-items: center; gap: 12px; background: #fff; border: 1.5px solid var(--border); border-radius: 12px; padding: 14px 18px; text-decoration: none; color: var(--text-dark); font-size: 0.92rem; font-weight: 500; margin-bottom: 10px; transition: border-color 0.2s; }
+.contact-btn:last-child { margin-bottom: 0; }
+.contact-btn:hover { border-color: var(--teal); }
+.field-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+.field-group label { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; color: var(--text-mid); }
+.field-group input { border: 1.5px solid var(--border); border-radius: 12px; padding: 14px 18px; font-family: 'Jost', sans-serif; font-size: 0.95rem; color: var(--text-dark); background: var(--cream); outline: none; transition: border-color 0.2s, box-shadow 0.2s; width: 100%; }
+.field-group input:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(78,143,130,0.12); background: #fff; }
+.radio-group { display: flex; flex-direction: column; gap: 10px; }
+.radio-label { display: flex; align-items: center; gap: 12px; padding: 14px 18px; border: 1.5px solid var(--border); border-radius: 12px; cursor: pointer; transition: all 0.2s; background: var(--cream); }
+.radio-label:hover { border-color: var(--teal); background: var(--teal-pale); }
+.radio-label input { accent-color: var(--teal); width: 18px; height: 18px; }
+.radio-label span { font-size: 0.92rem; font-weight: 500; }
+.submit-btn { background: var(--teal); color: #fff; border: none; border-radius: 50px; padding: 18px 44px; font-family: 'Jost', sans-serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; transition: all 0.3s; margin-top: 8px; box-shadow: 0 8px 30px rgba(78,143,130,0.3); width: 100%; }
+.submit-btn:hover { background: var(--teal-dark); transform: translateY(-2px); }
+.form-note { font-size: 0.82rem; color: var(--text-light); text-align: center; line-height: 1.5; margin-top: 12px; }
 
-  /* ─── SECTION DEFAULTS ─── */
-  section { padding: 90px 80px; }
-  .section-eyebrow {
-    font-size: 0.78rem; font-weight: 700; letter-spacing: 2px;
-    text-transform: uppercase; color: var(--teal);
-    margin-bottom: 12px; display: block;
-  }
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.8rem, 3vw, 2.6rem);
-    font-weight: 900; line-height: 1.2; margin-bottom: 48px;
-    color: var(--text-dark);
-  }
+/* FINAL CTA */
+.final-cta { background: linear-gradient(135deg, var(--teal-dark), var(--teal)); color: #fff; text-align: center; padding: 100px 80px; }
+.final-eyebrow { font-size: 0.78rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--teal-light); margin-bottom: 12px; display: block; }
+.final-cta h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 900; line-height: 1.2; margin-bottom: 48px; }
+.cta-prices { display: flex; justify-content: center; gap: 32px; margin-bottom: 48px; flex-wrap: wrap; align-items: center; }
+.cta-when { font-size: 0.75rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; opacity: 0.65; margin-bottom: 6px; display: block; }
+.cta-amount { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 900; color: #a8ddd4; }
+.cta-strike .cta-amount { text-decoration: line-through; opacity: 0.5; color: #fff; }
+.cta-divider { font-size: 2rem; opacity: 0.3; }
+.btn-cta-large { display: inline-flex; align-items: center; gap: 12px; background: #fff; color: var(--teal-dark); border-radius: 50px; padding: 20px 52px; font-family: 'Jost', sans-serif; font-size: 0.95rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; transition: all 0.3s; box-shadow: 0 12px 40px rgba(0,0,0,0.25); }
+.btn-cta-large:hover { background: var(--teal-pale); transform: translateY(-3px); }
+.final-contacts { margin-top: 40px; display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
+.final-contacts a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; transition: color 0.2s; }
+.final-contacts a:hover { color: #fff; }
 
-  /* ─── DATES SECTION ─── */
-  .dates-section { background: var(--warm-white); }
-  .dates-grid {
-    display: grid; grid-template-columns: 1fr 1fr 1fr;
-    gap: 0; border: 1px solid var(--border); border-radius: 20px;
-    overflow: hidden; background: #fff; box-shadow: var(--shadow);
-  }
-  .date-row {
-    padding: 32px 36px;
-    border-right: 1px solid var(--border);
-    position: relative; transition: background 0.25s;
-  }
-  .date-row:last-child { border-right: none; }
-  .date-row:hover { background: var(--teal-pale); }
-  .date-row.highlighted { background: var(--teal-pale); }
-  .date-row.deadline { background: var(--urgent-light); }
-  .date-row.deadline:hover { background: #fde8e7; }
-  .date-tag {
-    font-size: 0.72rem; font-weight: 700; letter-spacing: 1.5px;
-    text-transform: uppercase; color: var(--text-light);
-    margin-bottom: 10px; display: block;
-  }
-  .date-row.highlighted .date-tag { color: var(--teal); }
-  .date-row.deadline .date-tag { color: var(--urgent); }
-  .date-headline {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem; font-weight: 700;
-    color: var(--text-dark); margin-bottom: 8px;
-  }
-  .date-row.deadline .date-headline { color: var(--urgent); }
-  .date-desc { font-size: 0.9rem; color: var(--text-mid); line-height: 1.5; }
-  .progress-row { margin-top: 12px; }
-  .progress-track {
-    height: 5px; background: var(--border); border-radius: 50px; overflow: hidden;
-  }
-  .progress-fill {
-    height: 100%; border-radius: 50px; background: var(--teal);
-    width: 0; transition: width 1.5s cubic-bezier(0.4,0,0.2,1);
-  }
-  .progress-fill.urgent { background: var(--urgent); }
+/* FOOTER */
+footer { background: var(--text-dark); color: rgba(255,255,255,0.5); text-align: center; padding: 28px 40px; font-size: 0.82rem; }
 
-  /* ─── MILESTONE SECTION ─── */
-  .milestone-section { background: var(--cream); }
-  .milestone-items { display: flex; flex-direction: column; gap: 0; }
-  .milestone-row {
-    display: grid; grid-template-columns: 130px 1fr auto;
-    gap: 32px; align-items: center;
-    padding: 32px 0; border-bottom: 1px solid var(--border);
-  }
-  .milestone-row:last-child { border-bottom: none; }
-  .milestone-time {
-    font-size: 0.72rem; font-weight: 700; letter-spacing: 1.5px;
-    text-transform: uppercase; color: var(--text-light);
-  }
-  .milestone-content strong {
-    display: block; font-size: 1.05rem; font-weight: 700;
-    color: var(--text-dark); margin-bottom: 4px;
-  }
-  .milestone-content span { font-size: 0.88rem; color: var(--text-mid); }
-  .milestone-bar-wrap { width: 200px; }
-  .milestone-bar-track {
-    height: 8px; background: var(--border); border-radius: 50px; overflow: hidden; margin-bottom: 4px;
-  }
-  .milestone-bar-fill {
-    height: 100%; border-radius: 50px; width: 0;
-    transition: width 1.8s cubic-bezier(0.4,0,0.2,1);
-  }
-  .milestone-bar-fill.c1 { background: var(--teal-light); }
-  .milestone-bar-fill.c2 { background: var(--teal); }
-  .milestone-bar-fill.c3 { background: var(--urgent); }
-  .milestone-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem; font-weight: 900; color: var(--border);
-    text-align: right; min-width: 60px;
-  }
-  .milestone-row:nth-child(2) .milestone-num { color: var(--teal-light); }
-  .milestone-row:nth-child(3) .milestone-num { color: var(--teal); }
-  .milestone-row:last-child .milestone-num { color: var(--urgent); }
+/* ANIMATIONS */
+.anim { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.anim.in { opacity: 1; transform: translateY(0); }
 
-  /* ─── WHAT'S INCLUDED ─── */
-  .included-section { background: var(--warm-white); }
-  .included-layout {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;
-  }
-  .included-illustration {
-    text-align: center;
-    align-self: start;
-  }
-  .included-illustration img {
-    width: 85%; max-width: 420px;
-    display: block; margin: 0 auto;
-  }
-  .included-list { display: flex; flex-direction: column; gap: 0; }
-  .included-item {
-    display: flex; align-items: flex-start; gap: 18px;
-    padding: 22px 0; border-bottom: 1px solid var(--border);
-  }
-  .included-item:last-child { border-bottom: none; }
-  .included-check {
-    flex-shrink: 0; width: 32px; height: 32px;
-    background: var(--teal-pale); border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    color: var(--teal); font-size: 0.9rem; font-weight: 700; margin-top: 2px;
-  }
-  .included-text strong {
-    display: block; font-size: 1rem; font-weight: 600;
-    color: var(--text-dark); margin-bottom: 3px;
-  }
-  .included-text span { font-size: 0.88rem; color: var(--text-mid); }
-  .bonus-box {
-    margin-top: 32px; padding: 28px 32px;
-    background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 100%);
-    border-radius: 20px; color: #fff;
-    display: flex; gap: 18px; align-items: flex-start;
-  }
-  .bonus-icon { font-size: 2rem; flex-shrink: 0; }
-  .bonus-box strong { display: block; font-size: 1rem; margin-bottom: 4px; }
-  .bonus-box span { font-size: 0.88rem; opacity: 0.85; line-height: 1.5; }
-
-  /* ─── URGENT SECTION ─── */
-  .urgent-section {
-    background: var(--urgent-light); padding: 70px 80px;
-    border-top: 1px solid #f5c6c5; border-bottom: 1px solid #f5c6c5;
-  }
-  .urgent-layout {
-    display: grid; grid-template-columns: auto 1fr; gap: 60px; align-items: center;
-    max-width: 900px; margin: 0 auto;
-  }
-  .urgent-icon-wrap {
-    width: 100px; height: 100px;
-    background: var(--urgent); border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 2.4rem; flex-shrink: 0;
-    box-shadow: 0 8px 30px rgba(192,57,43,0.35);
-  }
-  .urgent-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem; font-weight: 900; color: var(--urgent); margin-bottom: 12px;
-  }
-  .urgent-text { font-size: 0.95rem; color: var(--text-mid); margin-bottom: 20px; }
-  .reasons-list { display: flex; flex-direction: column; gap: 10px; }
-  .reason-item {
-    display: flex; align-items: flex-start; gap: 12px;
-    font-size: 0.9rem; color: var(--text-mid);
-  }
-  .reason-dot {
-    width: 6px; height: 6px; background: var(--urgent);
-    border-radius: 50%; margin-top: 8px; flex-shrink: 0;
-  }
-
-  /* ─── FORM ─── */
-  .form-section { background: #fff; border-top: 1px solid var(--border); }
-  .form-layout {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
-  }
-  .form-illustration { text-align: center; padding-top: 20px; }
-  .form-illustration img {
-    width: 80%; max-width: 400px;
-    border-radius: 20px; object-fit: cover;
-    box-shadow: 0 12px 50px rgba(78,143,130,0.18);
-  }
-  .form-contact-box {
-    margin-top: 32px; padding: 28px;
-    background: var(--teal-pale); border-radius: 20px;
-  }
-  .form-contact-box p {
-    font-size: 0.78rem; font-weight: 600; letter-spacing: 1px;
-    text-align: center; color: var(--text-mid);
-    text-transform: uppercase; margin-bottom: 16px;
-  }
-  .contact-btn {
-    display: flex; align-items: center; gap: 12px;
-    background: #fff; border: 1.5px solid var(--border);
-    border-radius: 12px; padding: 14px 18px;
-    text-decoration: none; color: var(--text-dark);
-    font-size: 0.92rem; font-weight: 500;
-    transition: border-color 0.2s; margin-bottom: 10px;
-  }
-  .contact-btn:last-child { margin-bottom: 0; }
-  .contact-btn:hover { border-color: var(--teal); background: #fff; }
-
-  form { display: flex; flex-direction: column; gap: 16px; }
-  .field-group { display: flex; flex-direction: column; gap: 6px; }
-  .field-group label {
-    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.8px;
-    text-transform: uppercase; color: var(--text-mid);
-  }
-  .field-group input {
-    border: 1.5px solid var(--border); border-radius: 12px;
-    padding: 14px 18px; font-family: 'Jost', sans-serif;
-    font-size: 0.95rem; color: var(--text-dark);
-    background: var(--cream); transition: border-color 0.2s, box-shadow 0.2s; outline: none;
-  }
-  .field-group input:focus {
-    border-color: var(--teal); box-shadow: 0 0 0 3px rgba(78,143,130,0.12); background: #fff;
-  }
-  .radio-group { display: flex; flex-direction: column; gap: 10px; }
-  .radio-label {
-    display: flex; align-items: center; gap: 12px;
-    padding: 14px 18px; border: 1.5px solid var(--border);
-    border-radius: 12px; cursor: pointer; transition: all 0.2s; background: var(--cream);
-  }
-  .radio-label:hover { border-color: var(--teal); background: var(--teal-pale); }
-  .radio-label input { accent-color: var(--teal); width: 18px; height: 18px; }
-  .radio-label span { font-size: 0.92rem; font-weight: 500; color: var(--text-dark); }
-  .submit-btn {
-    background: var(--teal); color: #fff; border: none;
-    border-radius: 50px; padding: 18px 44px;
-    font-family: 'Jost', sans-serif; font-size: 0.9rem;
-    font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
-    cursor: pointer; transition: all 0.3s; margin-top: 8px;
-    box-shadow: 0 8px 30px rgba(78,143,130,0.3); width: 100%;
-  }
-  .submit-btn:hover { background: var(--teal-dark); transform: translateY(-2px); }
-  .form-note {
-    font-size: 0.82rem; color: var(--text-light); text-align: center; line-height: 1.5;
-  }
-
-  /* ─── FINAL CTA ─── */
-  .final-cta {
-    background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 100%);
-    color: #fff; text-align: center; padding: 100px 80px;
-  }
-  .final-cta .section-eyebrow { color: var(--teal-light); display: block; margin-bottom: 12px; }
-  .final-cta h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 900;
-    line-height: 1.2; margin-bottom: 48px;
-  }
-  .cta-prices {
-    display: flex; justify-content: center; gap: 32px; margin-bottom: 48px; flex-wrap: wrap;
-  }
-  .cta-price-item { text-align: center; }
-  .cta-price-item .cta-when {
-    font-size: 0.75rem; font-weight: 600; letter-spacing: 1.5px;
-    text-transform: uppercase; opacity: 0.65; margin-bottom: 6px; display: block;
-  }
-  .cta-price-item .cta-amount {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem; font-weight: 900; color: #a8ddd4;
-  }
-  .cta-price-item.strike .cta-amount { text-decoration: line-through; opacity: 0.5; color: #fff; }
-  .cta-divider { font-size: 2rem; opacity: 0.3; align-self: center; }
-  .btn-cta-large {
-    display: inline-flex; align-items: center; gap: 12px;
-    background: #fff; color: var(--teal-dark);
-    border-radius: 50px; padding: 20px 52px;
-    font-family: 'Jost', sans-serif; font-size: 0.95rem;
-    font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
-    text-decoration: none; transition: all 0.3s;
-    box-shadow: 0 12px 40px rgba(0,0,0,0.25);
-  }
-  .btn-cta-large:hover { background: var(--teal-pale); transform: translateY(-3px); }
-  .final-contact-links {
-    margin-top: 40px; display: flex; justify-content: center; gap: 32px; flex-wrap: wrap;
-  }
-  .final-contact-links a {
-    color: rgba(255,255,255,0.75); text-decoration: none;
-    font-size: 0.9rem; transition: color 0.2s;
-    display: flex; align-items: center; gap: 8px;
-  }
-  .final-contact-links a:hover { color: #fff; }
-
-  /* ─── FOOTER ─── */
-  footer {
-    background: var(--text-dark); color: rgba(255,255,255,0.5);
-    text-align: center; padding: 28px 40px; font-size: 0.82rem;
-  }
-
-  /* ─── ANIMATIONS ─── */
-  .fade-up {
-    opacity: 0; transform: translateY(28px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-  .fade-up.visible { opacity: 1; transform: translateY(0); }
-
-  /* ─── RESPONSIVE ─── */
-  @media (max-width: 900px) {
-    section { padding: 60px 28px; }
-    .hero { grid-template-columns: 1fr; min-height: auto; }
-    .hero-left { padding: 60px 28px; }
-    .hero-right { min-height: 380px; }
-    .stats-bar { padding: 28px 20px; flex-wrap: wrap; }
-    .stat-item { border-right: none; border-bottom: 1px solid var(--border); padding: 20px 0; min-width: 50%; }
-    .dates-grid { grid-template-columns: 1fr; }
-    .date-row { border-right: none; border-bottom: 1px solid var(--border); }
-    .included-layout, .form-layout { grid-template-columns: 1fr; gap: 40px; }
-    .urgent-layout { grid-template-columns: 1fr; }
-    .milestone-row { grid-template-columns: 90px 1fr; }
-    .milestone-bar-wrap, .milestone-num { display: none; }
-    .site-header { padding: 14px 24px; }
-    .final-cta { padding: 70px 28px; }
-  }
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  section { padding: 60px 24px; }
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-left { padding: 60px 24px; }
+  .hero-right { min-height: 360px; }
+  .stats-bar { padding: 28px 24px; flex-wrap: wrap; }
+  .stat-item { border-right: none; border-bottom: 1px solid var(--border); padding: 20px 0; width: 50%; flex: none; }
+  .stat-item:nth-child(odd) { border-right: 1px solid var(--border); }
+  .dates-grid { grid-template-columns: 1fr; }
+  .date-row { border-right: none; border-bottom: 1px solid var(--border); }
+  .date-row:last-child { border-bottom: none; }
+  .included-layout, .form-layout { grid-template-columns: 1fr; gap: 40px; }
+  .urgent-layout { grid-template-columns: 1fr; }
+  .urgent-icon-wrap { width: 70px; height: 70px; font-size: 1.8rem; }
+  .milestone-row { grid-template-columns: 90px 1fr; }
+  .m-bar-track, .milestone-num { display: none; }
+  .site-header { padding: 14px 20px; }
+  .final-cta { padding: 70px 24px; }
+  .hero-name-tag { bottom: 16px; left: 16px; padding: 10px 14px; }
+}
 </style>
 </head>
 <body>
@@ -502,28 +264,26 @@
 
 <!-- HEADER -->
 <header class="site-header">
-  <a class="logo" href="#">
-    <img src="logo.png" alt="НоV — Наталья Воинова">
-  </a>
+  <a href="#" class="logo"><img src="logo.png" alt="НоV — Наталья Воинова"></a>
   <a href="#form" class="header-cta">Заказать расчет</a>
 </header>
 
 <!-- HERO -->
 <section class="hero" style="padding:0;">
   <div class="hero-left">
-    <span class="hero-eyebrow">Годовой отчет 2025</span>
+    <span class="hero-eyebrow">⏰ Годовой отчет 2025</span>
     <h1>Daňové přiznání<br>за 2025 год:<br><em>профессиональный<br>расчет отчетов</em><br>для FÚ, OSSZ и VZP</h1>
-    <p class="hero-deadline">Крайний срок подачи — 4 мая 2026 года</p>
+    <p class="hero-deadline">🔴 Крайний срок подачи — 4 мая 2026 года</p>
     <div class="price-cards">
       <div class="price-card featured">
         <div class="badge">До 15 апреля</div>
         <div class="label">Тариф Базовый</div>
-        <div class="amount">3 500 <span class="currency">Kč</span></div>
+        <div class="amount">3 500 <span style="font-size:1rem;font-weight:400">Kč</span></div>
         <div class="desc">(все три отчета в одном пакете по специальной цене)</div>
       </div>
-      <div class="price-card urgent">
+      <div class="price-card urgent-card">
         <div class="label">Тариф Срочный</div>
-        <div class="amount">5 000 <span class="currency">Kč</span></div>
+        <div class="amount">5 000 <span style="font-size:1rem;font-weight:400">Kč</span></div>
         <div class="desc">(с 15 апреля, при подаче документов в последний момент)</div>
       </div>
     </div>
@@ -538,8 +298,8 @@
   </div>
 </section>
 
-<!-- STATS -->
-<div class="stats-bar fade-up">
+<!-- STATS BAR -->
+<div class="stats-bar anim">
   <div class="stat-item">
     <div class="stat-num">26 <span class="stat-unit">лет</span></div>
     <div class="stat-label">в бухгалтерии</div>
@@ -559,17 +319,16 @@
 </div>
 
 <!-- DATES SECTION -->
-<section class="dates-section fade-up">
+<section class="dates-section anim">
   <span class="section-eyebrow">Важные даты</span>
   <h2 class="section-title">Чем раньше вы обратитесь за расчетом налогов, тем проще и выгоднее будет для вас</h2>
-
   <div class="dates-grid">
     <div class="date-row highlighted">
       <span class="date-tag">⏰ До 15 апреля</span>
       <div class="date-headline">3 500 Kč</div>
       <p class="date-desc">Тариф «Базовый» (все три отчета в одном пакете по специальной цене).</p>
       <div class="progress-row">
-        <div class="progress-track"><div class="progress-fill" data-width="65"></div></div>
+        <div class="progress-track"><div class="progress-fill" data-w="65"></div></div>
       </div>
     </div>
     <div class="date-row">
@@ -577,7 +336,7 @@
       <div class="date-headline">5 000 Kč</div>
       <p class="date-desc">Тариф «Срочный» (для тех, кто передает документы в последний момент).</p>
       <div class="progress-row">
-        <div class="progress-track"><div class="progress-fill urgent" data-width="85"></div></div>
+        <div class="progress-track"><div class="progress-fill red" data-w="85"></div></div>
       </div>
     </div>
     <div class="date-row deadline">
@@ -585,120 +344,87 @@
       <div class="date-headline">Крайний срок!</div>
       <p class="date-desc">Дедлайн подачи годового отчета в налоговую. Это важно!</p>
       <div class="progress-row">
-        <div class="progress-track"><div class="progress-fill urgent" data-width="100"></div></div>
+        <div class="progress-track"><div class="progress-fill red" data-w="100"></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- MILESTONE PROGRESS -->
-<section class="milestone-section fade-up">
+<!-- MILESTONES -->
+<section class="milestone-section anim">
   <span class="section-eyebrow">Этапы работы</span>
   <h2 class="section-title">Как проходит подготовка</h2>
-
-  <div class="milestone-items">
-    <div class="milestone-row">
-      <div class="milestone-time">Шаг 01</div>
-      <div class="milestone-content">
-        <strong>Вы заполняете форму</strong>
-        <span>Оставляете заявку, мы связываемся в течение 24 часов</span>
-      </div>
-      <div class="milestone-bar-wrap">
-        <div class="milestone-bar-track"><div class="milestone-bar-fill c1" data-width="25"></div></div>
-      </div>
-      <div class="milestone-num">01</div>
+  <div class="milestone-row">
+    <div class="milestone-time">Шаг 01</div>
+    <div class="milestone-content">
+      <strong>Вы заполняете форму</strong>
+      <span>Оставляете заявку, мы связываемся в течение 24 часов</span>
     </div>
-    <div class="milestone-row">
-      <div class="milestone-time">Шаг 02</div>
-      <div class="milestone-content">
-        <strong>Получаете реквизиты для оплаты и доступ к платформе</strong>
-        <span>На платформе подробно расписано, какие документы необходимо прикрепить и где их взять</span>
-      </div>
-      <div class="milestone-bar-wrap">
-        <div class="milestone-bar-track"><div class="milestone-bar-fill c2" data-width="50"></div></div>
-      </div>
-      <div class="milestone-num">02</div>
+    <div class="m-bar-track"><div class="m-bar-fill c1" data-w="25"></div></div>
+    <div class="milestone-num">01</div>
+  </div>
+  <div class="milestone-row">
+    <div class="milestone-time">Шаг 02</div>
+    <div class="milestone-content">
+      <strong>Получаете реквизиты для оплаты и доступ к платформе</strong>
+      <span>На платформе подробно расписано, какие документы необходимо прикрепить и где их взять</span>
     </div>
-    <div class="milestone-row">
-      <div class="milestone-time">Шаг 03</div>
-      <div class="milestone-content">
-        <strong>Подготовка расчетов</strong>
-        <span>Наталья проверяет все документы, производит расчеты, обычно 5 рабочих дней</span>
-      </div>
-      <div class="milestone-bar-wrap">
-        <div class="milestone-bar-track"><div class="milestone-bar-fill c2" data-width="75"></div></div>
-      </div>
-      <div class="milestone-num">03</div>
+    <div class="m-bar-track"><div class="m-bar-fill c2" data-w="50"></div></div>
+    <div class="milestone-num">02</div>
+  </div>
+  <div class="milestone-row">
+    <div class="milestone-time">Шаг 03</div>
+    <div class="milestone-content">
+      <strong>Подготовка расчетов</strong>
+      <span>Наталья проверяет все документы, производит расчеты, обычно 5 рабочих дней</span>
     </div>
-    <div class="milestone-row">
-      <div class="milestone-time">Шаг 04</div>
-      <div class="milestone-content">
-        <strong>Подача отчетов</strong>
-        <span>Отчеты отправляются в FÚ, OSSZ и VZP, вы получаете подтверждения на email</span>
-      </div>
-      <div class="milestone-bar-wrap">
-        <div class="milestone-bar-track"><div class="milestone-bar-fill c3" data-width="100"></div></div>
-      </div>
-      <div class="milestone-num">04</div>
+    <div class="m-bar-track"><div class="m-bar-fill c2" data-w="75"></div></div>
+    <div class="milestone-num">03</div>
+  </div>
+  <div class="milestone-row">
+    <div class="milestone-time">Шаг 04</div>
+    <div class="milestone-content">
+      <strong>Подача отчетов</strong>
+      <span>Отчеты отправляются в FÚ, OSSZ и VZP, вы получаете подтверждения на email</span>
     </div>
+    <div class="m-bar-track"><div class="m-bar-fill c3" data-w="100"></div></div>
+    <div class="milestone-num">04</div>
   </div>
 </section>
 
-<!-- WHAT'S INCLUDED -->
-<section class="included-section fade-up">
+<!-- INCLUDED -->
+<section class="included-section anim">
   <span class="section-eyebrow">Состав услуги</span>
   <h2 class="section-title">Тариф «Базовый» включает:</h2>
-
   <div class="included-layout">
     <div class="included-illustration">
       <img src="illus2_nobg.png" alt="Бухгалтерские услуги">
     </div>
     <div>
-      <div class="included-list">
-        <div class="included-item">
-          <div class="included-check">✓</div>
-          <div class="included-text">
-            <strong>Расчет Daňové přiznání</strong>
-            <span>Налоговая декларация в Finanční úřad</span>
-          </div>
-        </div>
-        <div class="included-item">
-          <div class="included-check">✓</div>
-          <div class="included-text">
-            <strong>Расчет отчета в OSSZ</strong>
-            <span>Социальное страхование, все рассчитано точно</span>
-          </div>
-        </div>
-        <div class="included-item">
-          <div class="included-check">✓</div>
-          <div class="included-text">
-            <strong>Расчет отчета в VZP</strong>
-            <span>Медицинское страхование, без ошибок и доначислений</span>
-          </div>
-        </div>
-        <div class="included-item">
-          <div class="included-check">✓</div>
-          <div class="included-text">
-            <strong>Уникальная платформа</strong>
-            <span>Работа на специализированной системе, разработанной для наших клиентов</span>
-          </div>
-        </div>
-        <div class="included-item">
-          <div class="included-check">✓</div>
-          <div class="included-text">
-            <strong>Проверка документов и расчетов</strong>
-            <span>Все цифры проверяются на ошибки, ни один штраф не будет вашей виной</span>
-          </div>
-        </div>
-        <div class="included-item">
-          <div class="included-check">✓</div>
-          <div class="included-text">
-            <strong>Консультация в процессе</strong>
-            <span>Вы можете задать вопросы на любом этапе подготовки</span>
-          </div>
-        </div>
+      <div class="included-item">
+        <div class="included-check">✓</div>
+        <div class="included-text"><strong>Расчет Daňové přiznání</strong><span>Налоговая декларация в Finanční úřad</span></div>
       </div>
-
+      <div class="included-item">
+        <div class="included-check">✓</div>
+        <div class="included-text"><strong>Расчет отчета в OSSZ</strong><span>Социальное страхование, все рассчитано точно</span></div>
+      </div>
+      <div class="included-item">
+        <div class="included-check">✓</div>
+        <div class="included-text"><strong>Расчет отчета в VZP</strong><span>Медицинское страхование, без ошибок и доначислений</span></div>
+      </div>
+      <div class="included-item">
+        <div class="included-check">✓</div>
+        <div class="included-text"><strong>Уникальная платформа</strong><span>Работа на специализированной системе, разработанной для наших клиентов</span></div>
+      </div>
+      <div class="included-item">
+        <div class="included-check">✓</div>
+        <div class="included-text"><strong>Проверка документов и расчетов</strong><span>Все цифры проверяются на ошибки, ни один штраф не будет вашей виной</span></div>
+      </div>
+      <div class="included-item">
+        <div class="included-check">✓</div>
+        <div class="included-text"><strong>Консультация в процессе</strong><span>Вы можете задать вопросы на любом этапе подготовки</span></div>
+      </div>
       <div class="bonus-box">
         <div class="bonus-icon">🎁</div>
         <div>
@@ -710,41 +436,38 @@
   </div>
 </section>
 
-<!-- URGENT SECTION -->
-<section class="urgent-section fade-up">
+<!-- URGENT -->
+<section class="urgent-section anim">
   <div class="urgent-layout">
     <div class="urgent-icon-wrap">⚠️</div>
     <div>
       <h3 class="urgent-title">С 15 апреля — срочный тариф 5 000 Kč</h3>
       <p class="urgent-text">Если вы передадите документы после 15 апреля, стоимость составит 5 000 Kč.</p>
-      <div class="reasons-list">
-        <div class="reason-item"><div class="reason-dot"></div><span>Сжатые сроки до дедлайна 4 мая, меньше времени на подготовку</span></div>
-        <div class="reason-item"><div class="reason-dot"></div><span>Большой объем заказов в последние недели перед дедлайном</span></div>
-        <div class="reason-item"><div class="reason-dot"></div><span>Это стимул не откладывать на последний момент</span></div>
-      </div>
+      <div class="reason-item"><div class="reason-dot"></div><span>Сжатые сроки до дедлайна 4 мая, меньше времени на подготовку</span></div>
+      <div class="reason-item"><div class="reason-dot"></div><span>Большой объем заказов в последние недели перед дедлайном</span></div>
+      <div class="reason-item"><div class="reason-dot"></div><span>Это стимул не откладывать на последний момент</span></div>
       <br>
-      <a href="#form" class="btn-primary btn-multiline" style="margin-top:8px;">
-        <span>Заказать<br>с экономией<br>1&nbsp;500&nbsp;Kč</span>
+      <a href="#form" class="btn-primary multiline" style="margin-top:16px; width:fit-content;">
+        <span>Заказать</span>
+        <span>с экономией</span>
+        <span>1&nbsp;500&nbsp;Kč</span>
       </a>
     </div>
   </div>
 </section>
 
 <!-- FORM -->
-<section class="form-section fade-up" id="form">
+<section class="form-section anim" id="form">
   <div class="form-layout">
-    <div class="form-left">
+    <div>
       <span class="section-eyebrow">📝 Оформить заказ</span>
       <h2 class="section-title">Заказать расчет<br>годового отчета</h2>
       <p style="color:var(--text-mid);margin-bottom:28px;font-size:0.95rem;">
         Заполните форму, мы свяжемся с вами в течение 24 часов и пришлём инструкции по документам.
       </p>
-
-      <form id="orderForm" action="https://formspree.io/f/REPLACE_WITH_YOUR_ID" method="POST">
-        <!-- Formspree: после регистрации на formspree.io замените REPLACE_WITH_YOUR_ID на ваш ID формы -->
+      <form action="https://formspree.io/f/REPLACE_WITH_YOUR_ID" method="POST">
         <input type="hidden" name="_subject" value="Новая заявка на расчет годового отчета">
         <input type="hidden" name="_cc" value="fbl@voinova.tax">
-        <input type="hidden" name="_next" value="">
         <div class="field-group">
           <label>Имя и фамилия *</label>
           <input type="text" name="name" placeholder="Иван Иванов" required>
@@ -760,62 +483,45 @@
         <div class="field-group">
           <label>Тип отчета *</label>
           <div class="radio-group">
-            <label class="radio-label">
-              <input type="radio" name="type" value="OSVČ" required>
-              <span>OSVČ — предприниматель</span>
-            </label>
-            <label class="radio-label">
-              <input type="radio" name="type" value="SRO">
-              <span>S.R.O. — компания</span>
-            </label>
-            <label class="radio-label">
-              <input type="radio" name="type" value="Физлицо">
-              <span>Физическое лицо</span>
-            </label>
+            <label class="radio-label"><input type="radio" name="type" value="OSVČ" required><span>OSVČ — предприниматель</span></label>
+            <label class="radio-label"><input type="radio" name="type" value="SRO"><span>S.R.O. — компания</span></label>
+            <label class="radio-label"><input type="radio" name="type" value="Физлицо"><span>Физическое лицо</span></label>
           </div>
         </div>
         <button type="submit" class="submit-btn">Отправить заявку →</button>
         <p class="form-note">После отправки вы получите письмо с инструкциями по документам и реквизитами для оплаты.</p>
       </form>
     </div>
-
     <div class="form-illustration">
       <img src="natalia.jpg" alt="Наталья Воинова">
       <div class="form-contact-box">
         <p>Есть вопросы?</p>
-        <a href="https://wa.me/420000000000" class="contact-btn">
-          <span style="font-size:1.3rem;">💬</span> Написать в WhatsApp
-        </a>
-        <a href="/cdn-cgi/l/email-protection#4920272f26093f262027263f282b3c2a2128253d2c3b202c672a33" class="contact-btn">
-          <span style="font-size:1.3rem;">✉️</span> Написать на email
-        </a>
+        <a href="https://wa.me/420000000000" class="contact-btn"><span style="font-size:1.3rem">💬</span> Написать в WhatsApp</a>
+        <a href="mailto:fbl@voinova.tax" class="contact-btn"><span style="font-size:1.3rem">✉️</span> Написать на email</a>
       </div>
     </div>
   </div>
 </section>
 
 <!-- FINAL CTA -->
-<section class="final-cta fade-up">
-  <span class="section-eyebrow">⏰ Дедлайн 4 мая 2026</span>
+<section class="final-cta anim">
+  <span class="final-eyebrow">⏰ Дедлайн 4 мая 2026</span>
   <h2>Не откладывайте<br>на последнюю неделю</h2>
-
   <div class="cta-prices">
-    <div class="cta-price-item">
+    <div>
       <span class="cta-when">До 15 апреля</span>
       <div class="cta-amount">3 500 Kč</div>
     </div>
     <div class="cta-divider">→</div>
-    <div class="cta-price-item strike">
+    <div class="cta-strike">
       <span class="cta-when">После 15 апреля</span>
       <div class="cta-amount">5 000 Kč</div>
     </div>
   </div>
-
   <a href="#form" class="btn-cta-large">Заказать расчет отчета →</a>
-
-  <div class="final-contact-links">
+  <div class="final-contacts">
     <a href="https://wa.me/420000000000">💬 WhatsApp: +420 000 000 000</a>
-    <a href="/cdn-cgi/l/email-protection#96fff8f0f9d6e0f9fff8f9e0f7f4e3f5fef7fae2f3e4fff3b8f5ec">✉️ <span class="__cf_email__" data-cfemail="127b7c747d52647d7b7c7d64737067717a737e6677607b773c7168">[email&#160;protected]</span></a>
+    <a href="mailto:fbl@voinova.tax">✉️ fbl@voinova.tax</a>
   </div>
 </section>
 
@@ -824,22 +530,44 @@
   <p>© 2025 Наталья Воинова · Бухгалтерские услуги в Чехии · OSVČ &amp; S.R.O.</p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(el => {
-      if (el.isIntersecting) {
-        el.target.classList.add('visible');
-        el.target.querySelectorAll('[data-width]').forEach(bar => {
-          setTimeout(() => { bar.style.width = bar.dataset.width + '%'; }, 200);
+<script>
+(function() {
+  // Animate elements on scroll
+  var items = document.querySelectorAll('.anim');
+  
+  function check() {
+    var windowH = window.innerHeight;
+    items.forEach(function(el) {
+      var rect = el.getBoundingClientRect();
+      if (rect.top < windowH * 0.88) {
+        el.classList.add('in');
+        // Animate progress bars inside
+        el.querySelectorAll('[data-w]').forEach(function(bar) {
+          setTimeout(function() { bar.style.width = bar.getAttribute('data-w') + '%'; }, 250);
         });
-        observer.unobserve(el.target);
       }
     });
-  }, { threshold: 0.12 });
+  }
 
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-  document.querySelector('.stats-bar').classList.add('visible');
+  // Run immediately (for elements already in view on load)
+  check();
+  window.addEventListener('scroll', check, { passive: true });
+  window.addEventListener('resize', check, { passive: true });
 
-  document.querySelectorAll('.radio-label input').forEach(r => {
-    r.addEventListener('change', () => {
-      document.querySelec
+  // Radio highlight
+  document.querySelectorAll('.radio-label input').forEach(function(r) {
+    r.addEventListener('change', function() {
+      document.querySelectorAll('.radio-label').forEach(function(l) {
+        l.style.borderColor = '';
+        l.style.background = '';
+      });
+      if (r.checked) {
+        r.closest('.radio-label').style.borderColor = 'var(--teal)';
+        r.closest('.radio-label').style.background = 'var(--teal-pale)';
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
